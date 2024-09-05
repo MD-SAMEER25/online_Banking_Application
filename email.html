@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/email.css">
+    <title>Email Verification</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Comfortaa, sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            background-color: #d4dee6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+        }
+
+        .wrapper {
+            width: 100%;
+            max-width: 550px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .email-msg-header {
+            font-size: 24px;
+            color: #333333;
+            margin-bottom: 20px;
+        }
+
+        .company-name {
+            font-size: 36px;
+            color: #4a4a4a;
+            margin: 10px 0;
+        }
+
+        .welcome-text {
+            font-size: 16px;
+            color: #555555;
+            margin: 20px 0;
+        }
+
+        .verify-account-btn {
+            display: inline-block;
+            padding: 12px 20px;
+            background-color: #007bff;
+            text-decoration: none;
+            color: #ffffff;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .verify-account-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .copy-right {
+            font-size: 14px;
+            color: #888888;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        <h2 class="email-msg-header">
+            Welcome and thank you for choosing
+        </h2>
+
+        <div class="company-name">Bank Of India</div>
+        <hr>
+
+        <p class="welcome-text">
+            Your account has been successfully registered. Please click the button below to verify your account.
+        </p>
+
+        <a href="#" class="verify-account-btn" role="button">Verify Account</a>
+
+        <div class="copy-right">
+            &copy; 2024 Bank Of India. All rights reserved.
+        </div>
+    </div>
+
+</body>
+</html>

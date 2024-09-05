@@ -1,0 +1,85 @@
+/* Global Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: url("../images/main_bg.png") no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Card Styles */
+.card-registration-form-card {
+    border-radius: 8px; /* Rounded corners */
+    padding: 2rem; /* Padding inside card */
+}
+
+.card-body {
+    padding: 0; /* Remove padding for card-body to manage spacing inside the card */
+}
+
+.form-header {
+    color: #FF4E00; /* Main theme color */
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 1rem; /* Space between form elements */
+}
+
+.form-group input {
+    width: 100%; /* Full width of the form group */
+    padding: 0.75rem; /* Padding inside inputs */
+    font-size: 1rem;
+    border: 1px solid #cccccc; /* Border color */
+    border-radius: 4px; /* Rounded corners */
+    background-color: #ffffff; /* Ensure background is white */
+}
+
+.form-group input::placeholder {
+    color: #888888; /* Placeholder text color */
+}
+
+/* Row Styling */
+.row {
+    margin-left: -0.5rem; /* Adjust row alignment */
+    margin-right: -0.5rem;
+}
+
+.form-group.col-12, .form-group.col-md-6 {
+    padding-left: 0.5rem; /* Space around columns */
+    padding-right: 0.5rem;
+}
+
+/* Button Styling */
+.btn-primary {
+    background-color: #FF4E00; /* Button background color */
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem; /* Padding for the button */
+    font-size: 0.75rem; /* Smaller font size for smaller button */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth color transition */
+}
+
+.btn-primary:hover {
+    background-color: #e04500; /* Darker shade on hover */
+}
+
+.btn-primary:focus {
+    outline: none;
+}
+
+.text-start {
+    text-align: start; /* Aligns text to the left */
+}
