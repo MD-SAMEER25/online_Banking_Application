@@ -1,0 +1,100 @@
+*{
+    box-sizing: border-box;
+    font-family: Comfortaa;
+}
+
+/* Main Body Styling */
+body{
+    background-color: rgb(211, 217, 226);
+}
+
+.container{
+    margin: 10px auto;
+}
+/* <!-- Main Page Header --> */
+/* Main Page Header */
+.main-page-header {
+    padding: 15px 0;
+    background-color: #012954;
+    color: #fff;
+}
+
+.main-page-header .company-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.navigation ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.navigation ul li {
+    margin-right: 20px;
+}
+
+.navigation ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.navigation ul li a:hover {
+    text-decoration: underline;
+}
+
+.display-name {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.btn-sm {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-weight: 600;
+}
+
+.btn-sm:hover {
+    text-decoration: underline;
+}
+
+#transact-btn{
+    background-color: rgb(227, 132, 16);
+    border: 1px solid rgb(114, 9, 9);
+}
+
+#add-account-btn{
+     background-color: #ff4e00;
+     border: 1px solid #8b2b00;
+     color: white;
+}
+
+.offcanvas{
+    background-image: url("../images/sam_bg.png");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.transact-btn{
+    background-color: #ff4e00;
+     border: 1px solid #8b2b00;
+     color: white;
+}
+.payment-card{
+    display: none;
+}
+
+
+.deposit-card{
+    display: none;
+}
+
+
+.withdraw-card{
+    display: none;
+}
