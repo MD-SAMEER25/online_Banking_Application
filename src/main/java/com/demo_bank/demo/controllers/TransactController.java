@@ -202,58 +202,65 @@ public class TransactController {
                           @RequestParam("account_id") String account_id,
                           @RequestParam("reference") String reference,
                           @RequestParam("payment_amount") String payment_amount,
+                          @RequestParam("target_user_id") int targetUserId, // New parameter for target user ID
+                          @RequestParam("target_account_id") int targetAccountId, // New parameter for target account ID
                           HttpSession session,
                           RedirectAttributes redirectAttributes) {
 
         String errorMessage;
         String successMessage;
 
-        // TODO: CHECK FOR EMPTY VALUES:
+        // Check for empty values
         if (beneficiary.isEmpty() || account_number.isEmpty() || account_id.isEmpty() || payment_amount.isEmpty()) {
             errorMessage = "Beneficiary, Account Number, Account Paying From and Payment Amount Cannot be Empty!";
             redirectAttributes.addFlashAttribute("error", errorMessage);
             return "redirect:/app/dashboard";
         }
 
-        // TODO: CONVERT VARIABLES:
+        // Convert variables
         int accountID = Integer.parseInt(account_id);
         double paymentAmount = Double.parseDouble(payment_amount);
 
-        // TODO: CHECK FOR 0 (ZERO) VALUES:
+        // Check for 0 (zero) values
         if (paymentAmount == 0) {
             errorMessage = "Payment Amount Cannot be of 0 (Zero) value, please enter a value greater than 0 (Zero)";
             redirectAttributes.addFlashAttribute("error", errorMessage);
             return "redirect:/app/dashboard";
         }
 
-        // TODO: GET LOGGED IN USER:
-        user = (User) session.getAttribute("user");
+        // Get logged in user
+        User user = (User) session.getAttribute("user");
 
-        // TODO: GET CURRENT BALANCE:
-        currentBalance = accountRepository.getAccountBalance(user.getUser_id(), accountID);
+        // Get current balance
+        double currentBalance = accountRepository.getAccountBalance(user.getUser_id(), accountID);
 
-        // TODO: CHECK IF PAYMENT AMOUNT IS MORE THAN CURRENT BALANCE:
+        // Check if payment amount is more than current balance
         if (currentBalance < paymentAmount) {
-            errorMessage = "You Have insufficient Funds to perform this payment";
-            String reasonCode = "Could not Process Payment due to insufficient funds!";
+            errorMessage = "You have insufficient funds to perform this payment";
+            String reasonCode = "Could not process payment due to insufficient funds!";
             paymentRepository.makePayment(accountID, beneficiary, account_number, paymentAmount, reference, "failed", reasonCode, currentDateTime);
-            // Log Failed Transaction:
+            // Log failed transaction
             transactRepository.logTransaction(accountID, "Payment", paymentAmount, "online", "failed", "Insufficient Funds", currentDateTime);
             redirectAttributes.addFlashAttribute("error", errorMessage);
             return "redirect:/app/dashboard";
         }
 
-        // TODO SET NEW BALANCE FOR ACCOUNT PAYING FROM:
-        newBalance = currentBalance - paymentAmount;
+        // Set new balance for account paying from
+        double newBalance = currentBalance - paymentAmount;
 
-        // TODO: MAKE PAYMENT:
-        String reasonCode = "Payment Processed Successfully!";
+        // Make payment
+        String reasonCode = "Payment processed successfully!";
         paymentRepository.makePayment(accountID, beneficiary, account_number, paymentAmount, reference, "success", reasonCode, currentDateTime);
 
-        // TODO: UPDATE ACCOUNT PAYING FROM:
+        // Update account paying from
         accountRepository.changeAccountBalanceById(newBalance, accountID);
 
-        // Log Successful Transaction:
+        // Get target account balance and update target account
+        double targetCurrentBalance = accountRepository.getAccountBalance(targetUserId, targetAccountId);
+        double newTargetBalance = targetCurrentBalance + paymentAmount;
+        accountRepository.changeAccountBalanceById(newTargetBalance, targetAccountId);
+
+        // Log successful transaction
         transactRepository.logTransaction(accountID, "Payment", paymentAmount, "online", "success", "Payment Transaction Successful", currentDateTime);
 
         successMessage = reasonCode;
