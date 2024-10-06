@@ -91,6 +91,20 @@
 
                     <!-- Form Group -->
                     <div class="form-group mb-2">
+                        <label for="target-user-id">Target User ID</label>
+                        <input type="text" name="target_user_id" id="target-user-id" class="form-control" placeholder="Enter Target User ID" required>
+                    </div>
+                    <!-- End Of Form Group -->
+
+                    <!-- Form Group -->
+                    <div class="form-group mb-2">
+                        <label for="target-account-id">Target Account ID</label>
+                        <input type="text" name="target_account_id" id="target-account-id" class="form-control" placeholder="Enter Target Account ID" required>
+                    </div>
+                    <!-- End Of Form Group -->
+
+                    <!-- Form Group -->
+                    <div class="form-group mb-2">
                         <button id="payment-btn" type="submit" class="btn btn-md transact-btn">Pay</button>
                     </div>
                     <!-- End Of Form Group -->
