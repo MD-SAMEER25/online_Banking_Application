@@ -46,7 +46,7 @@ To set up the project locally, you’ll need to clone the repository. Follow the
 
 - 4)Navigate to the project directory
 
-        cd online_Banking_Application-main
+        cd online_Banking_Application
 
 -5)Install dependencies and build the project(Bash or Cmd)
 
