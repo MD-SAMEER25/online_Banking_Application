@@ -46,6 +46,8 @@
                                 <li class="list-group-item d-flex">Account Number <span class="ms-auto"><b>${account.account_number}</b></span></li>
                                 <li class="list-group-item d-flex">Account Type <span class="ms-auto"><b>${account.account_type}</b></span></li>
                                 <li class="list-group-item d-flex">Account Balance <span class="ms-auto"><b>${account.balance}</b></span></li>
+                                <li class="list-group-item d-flex">User ID <span class="ms-auto"><b>${account.user_id}</b></span></li>
+                                <li class="list-group-item d-flex">Account ID <span class="ms-auto"><b>${account.account_id}</b></span></li>
                             </ul>
                             <!-- Account Details List -->
                         </div>
