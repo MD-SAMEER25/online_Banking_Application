@@ -33,29 +33,105 @@ A Spring Boot-based online banking application that allows users to manage accou
 
 ## STEPS (To Run The Application)
 
-To set up the project locally, you’ll need to clone the repository. Follow these steps to clone successfully:
-- 1)Open your terminal(Git Bash or Windows command prompt)
-
-- 2)Increase Git’s buffer size to handle large repositories
-        
-        git config --global http.postBuffer 524288000
-
-- 3)clone the repository
-
-        git clone https://github.com/MD-SAMEER25/online_Banking_Application.git
-
-- 4)Navigate to the project directory
-
-        cd online_Banking_Application
-
--5)Install dependencies and build the project(Bash or Cmd)
-
-        ./mvnw install (or)  mvnw.cmd install
 
 
--6)Run the Application(Bash or Cmd)
+### Step 1: Create a New Connection in MySQL Workbench
+1. Open MySQL Workbench.
+2. Create a new connection with the following settings:
+   - **Hostname**: `localhost`
+   - **Port**: `3306`
+   - **Username**: `root`
+   - **Password**: (your MySQL root password)
 
-        ./mvnw spring-boot:run (or) mvnw.cmd spring-boot:run
+### Step 2: Create an Empty Database
+ Run the following command to create a new database named `demo_bank`:
+
+     CREATE DATABASE demo_bank;
+
+Make sure your server is running 
+
+### Step 3: open the terminal(Bash or CMD)
+
+        mysql -u root -p demo_bank < path\to\demo_bank.sql
+
+Enter your mysql root password:
+
+### Step 4: 
+ - open the project file in vs code or other code editors.
+ - Make sure you have a dependencies like JDK(Java Development Kit),extension pack for maven in vs code.
+ - Navigate to the application_properties (src>main>resources>application_properties)
+ -  change Spring.datasource.password:[Your MySQL Root Password]
+
+### Step 5
+- Run the application(maven<plugins<springboot<run)
+ 
+
+
+
+
+## Output Images
+
+Home page
+![App Screenshot](https://github.com/MD-SAMEER25/newrepo/blob/main/Screenshot%202024-10-10%20120826.png?raw=true)
+
+Account registration page
+![App Screenshot](https://github.com/MD-SAMEER25/newrepo/blob/main/Screenshot%202024-10-10%20120838.png?raw=true)
+
+After account creation by User credentials
+![App Screenshot](https://github.com/MD-SAMEER25/newrepo/blob/main/Screenshot%202024-10-10%20121715.png?raw=true)
+
+Account Verification in Email
+![App Screenshot](https://github.com/MD-SAMEER25/newrepo/blob/main/Screenshot%202024-10-10%20121748.png?raw=true)
+
+Successful Account Verification
+![App Screenshot](https://github.com/MD-SAMEER25/newrepo/blob/main/Screenshot%202024-10-10%20121806.png?raw=true)
+
+After the Correct User login
+![App Screenshot](https://github.com/MD-SAMEER25/newrepo/blob/main/Screenshot%202024-10-10%20121120.png?raw=true)
+
+Add new account
+![App Screenshot](https://github.com/MD-SAMEER25/newrepo/blob/main/Screenshot%202024-10-10%20121150.png?raw=true)
+
+make a transaction (Payment)
+![App Screenshot](https://github.com/MD-SAMEER25/newrepo/blob/main/Screenshot%202024-10-10%20121233.png?raw=true)
+
+make a transaction (transfer)
+![App Screenshot](https://github.com/MD-SAMEER25/newrepo/blob/main/Screenshot%202024-10-10%20121244.png?raw=true)
+
+make a transaction (deposit)
+![App Screenshot](https://github.com/MD-SAMEER25/newrepo/blob/main/Screenshot%202024-10-10%20121300.png?raw=true)
+
+make a transaction (withdraw)
+![App Screenshot](https://github.com/MD-SAMEER25/newrepo/blob/main/Screenshot%202024-10-10%20121312.png?raw=true)
+
+View payment history
+![App Screenshot](https://github.com/MD-SAMEER25/newrepo/blob/main/Screenshot%202024-10-10%20121330.png?raw=true)
+
+View transaction history
+![App Screenshot](https://github.com/MD-SAMEER25/newrepo/blob/main/Screenshot%202024-10-10%20121342.png?raw=true)
+
+Integrated chatbot
+![App Screenshot](https://github.com/MD-SAMEER25/newrepo/blob/main/Screenshot%202024-10-10%20121411.png?raw=true)
+
+signout
+![App Screenshot](https://github.com/MD-SAMEER25/newrepo/blob/main/Screenshot%202024-10-10%20121426.png?raw=true)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## USAGE
 
@@ -64,17 +140,21 @@ To set up the project locally, you’ll need to clone the repository. Follow the
 - Dashboard: View account details, transaction history, and apply for loans.
 - Transactions: Use the “Transaction” button to open the transaction panel.
 - Payment History: View payment records in the history section, ordered by date.
+
 ## TROUBLESHOOTING
 
  If you encounter issues while running the application, consider the following solutions:
 
 - Database Connection Issues(Ensure that your MySQL server is running and accessible. Check your database connection settings in src/main/resources/application.properties)
 
-- Batch File Execution (Windows) (If the mvnw.cmd file does not execute properly, try running the Command Prompt as an administrator or verify that the file is saved correctly with a .cmd extension)
+- If path\to\demo_bank.sql is not the correct path to your SQL file, the command will fail with an error indicating that the file cannot be found
 
-- Long Build Times(If the build process takes longer than expected, check your internet connection, as dependencies may need to be downloaded)
+- If the database demo_bank does not exist, MySQL will return an error. Ensure that you’ve created the demo_bank database first using:
+        
+        CREATE DATABASE demo_bank;
 
-- Token Authentication Failure (If you experience issues with token-based authentication, ensure that your email verification process is correctly implemented and that tokens are being generated and stored appropriately)
+- Ensure all the dependencies are correctly installed
+
 ## FREQUENTLY ASKED QUESTIONS
 
 - How do I register a new user?
